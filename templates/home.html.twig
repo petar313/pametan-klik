@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}">
+    <head>
+        <meta charset="UTF-8" />
+        <title>{{ 'Pametan klik'|trans }}</title>
+        <meta
+            name="description"
+            content="Saznajte kako da zaštitite decu na internetu. Saveti za roditelje i decu o bezbednom surfovanju, društvenim mrežama i igricama."
+        />
+        <meta
+            name="keywords"
+            content="bezbednost dece, internet, roditelji, deca, zaštita na internetu, cyber sigurnost"
+        />
+        <meta name="author" content="Pametan Klik" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="google-adsense-account" content="ca-pub-8461459944732725" />
+        <!-- Google ads script -->
+        <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8461459944732725"
+            crossorigin="anonymous"
+        ></script>
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/styles.css" />
+        <!-- Favicon and manifest -->
+        <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+        <link rel="manifest" href="site.webmanifest" />
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": "Pametan Klik",
+                "url": "https://www.pametanklik.rs",
+                "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": "https://www.pametanklik.rs/search?q={search_term_string}",
+                    "query-input": "required name=search_term_string"
+                }
+            }
+        </script>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        />
+    </head>
+    <body
+        onload="MM_preloadImages('images/karakondzulica11-2.gif','images/karakondzulica12-2.gif','images/karakondzulica13-2.gif','images/karakondzulica14-2.gif','images/karakondzulica15-2.gif','images/karakondzulica21-2.gif','images/karakondzulica23-2.gif','images/karakondzulica31-2.gif','images/karakondzulica32-2.gif','images/karakondzulica33-2.gif','images/karakondzulica34-2.gif','images/karakondzulica35-2.gif','images/mala maja nasmejana.gif'); waitPreloadPage();"
+    >
+        <!-- Preloader -->
+        <div id="prepage" class="preloader">
+            <div class="preloader-content">
+                <p>{{'loading...' |trans}}</p>
+                <p>{{'please wait...'|trans}}</p>
+            </div>
+        </div>
+
+        <!-- Header: jezik i logo/uloga -->
+        <header>
+            <nav class="language-nav">
+                <ul>
+                    <li>
+                        <a href="{{ path('home', {'_locale': 'sr'}) }}">
+                            <img
+                                src="images/zastave i logoi/SRflag.jpg"
+                                alt="Srpski"
+                                width="30"
+                                height="20"
+                            />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('home', {'_locale': 'en'}) }}">
+                            <img
+                                src="images/zastave i logoi/UKflag.gif"
+                                alt="English"
+                                width="30"
+                                height="20"
+                            />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('home', {'_locale': 'es'}) }}">
+                            <img
+                                src="images/zastave i logoi/ESflag.png"
+                                alt="Español"
+                                width="30"
+                                height="20"
+                            />
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Glavni sadržaj -->
+        <main class="container">
+            <section class="gallery">
+                <!-- Prva red -->
+                <div class="gallery-row">
+                    <figure>
+                        <a
+                            href="#"
+                            onmouseout="MM_swapImgRestore()"
+                            onmouseover="MM_swapImage('karakondzulica1','','images/karakondzulica11-2.gif',1)"
+                        >
+                            <img
+                                src="images/karakondzulica11.gif"
+                                alt="karakondzulica"
+                                id="karakondzulica1"
+                            />
+                        </a>
+                    </figure>
+                    <figure>
+                        <a
+                            href="#"
+                            onmouseout="MM_swapImgRestore()"
+                            onmouseover="MM_swapImage('karakondzulica2','','images/karakondzulica12-2.gif',1)"
+                        >
+                            <img
+                                src="images/karakondzulica12.gif"
+                                alt="karakondzulica"
+                                id="karakondzulica2"
+                            />
+                        </a>
+                    </figure>
+                    <figure>
+                        <a
+                            href="#"
+                            onmouseout="MM_swapImgRestore()"
+                            onmouseover="MM_swapImage('karakondzulica3','','images/karakondzulica13-2.gif',1)"
+                        >
+                            <img
+                                src="images/karakondzulica13.gif"
+                                alt="karakondzulica"
+                                id="karakondzulica3"
+                            />
+                        </a>
+                    </figure>
+                    <figure>
+                        <a
+                            href="#"
+                            onmouseout="MM_swapImgRestore()"
+                            onmouseover="MM_swapImage('karakondzulica4','','images/karakondzulica14-2.gif',1)"
+                        >
+                            <img
+                                src="images/karakondzulica14.gif"
+                                alt="karakondzulica"
+                                id="karakondzulica4"
+                            />
+                        </a>
+                    </figure>
+                    <figure>
+                        <a
+                            href="#"
+                            onmouseout="MM_swapImgRestore()"
+                            onmouseover="MM_swapImage('karakondzulica5','','images/karakondzulica15-2.gif',1)"
+                        >
+                            <img
+                                src="images/karakondzulica15.gif"
+                                alt="karakondzulica"
+                                id="karakondzulica5"
+                            />
+                        </a>
+                    </figure>
+                </div>
+                <!-- Drugi red -->
+                <div class="gallery-row">
+                    <figure>
+                        <a
+                            href="#"
+                            onmouseout="MM_swapImgRestore()"
+                            onmouseover="MM_swapImage('karakondzulica6','','images/karakondzulica21-2.gif',1)"
+                        >
+                            <img
+                                src="images/karakondzulica21.gif"
+                                alt="karakondzulica"
+                                id="karakondzulica6"
+                            />
+                        </a>
+                    </figure>
+                    <figure>
+                        <a
+                            href="{{ path('saveti_roditelji') }}"
+                            onmouseout="MM_swapImgRestore()"
+                            onmouseover="MM_swapImage('malaMajaRod','','images/mala-maja-nasmejanaRod.gif',1)"
+                        >
+                            <img
+                                src="images/mala-maja-zbunjenaRod.gif"
+                                alt="Pametan klik za roditelje"
+                                id="malaMajaRod"
+                            />
+                        </a>
+                    </figure>
+                    <figure>
+                        <a
+                            href="#"
+                            onmouseout="MM_swapImgRestore()"
+                            onmouseover="MM_swapImage('karakondzulica23','','images/karakondzulica23-2.gif',1)"
+                        >
+                            <img
+                                src="images/karakondzulica23.gif"
+                                alt="karakondzulica"
+                                id="karakondzulica23"
+                            />
+                        </a>
+                    </figure>
+                    <figure>
+                        <a
+                            href="{{ path('saveti_deca') }}"
+                            onmouseout="MM_swapImgRestore()"
+                            onmouseover="MM_swapImage('malaMajaDeca','','images/mala-maja-nasmejanaDeca.gif',1)"
+                        >
+                            <img
+                                src="images/mala-maja-zbunjenaDeca.gif"
+                                alt="Pametan klik za decu"
+                                id="malaMajaDeca"
+                            />
+                        </a>
+                    </figure>
+                    <figure>
+                        <a
+                            href="#"
+                            onmouseout="MM_swapImgRestore()"
+                            onmouseover="MM_swapImage('karakondzulica25','','images/karakondzulica25-2.gif',1)"
+                        >
+                            <img
+                                src="images/karakondzulica25.gif"
+                                alt="karakondzulica"
+                                id="karakondzulica25"
+                            />
+                        </a>
+                    </figure>
+                </div>
+                <!-- Treći red -->
+                <div class="gallery-row">
+                    <figure>
+                        <a
+                            href="#"
+                            onmouseout="MM_swapImgRestore()"
+                            onmouseover="MM_swapImage('karakondzulica31','','images/karakondzulica31-2.gif',1)"
+                        >
+                            <img
+                                src="images/karakondzulica31.gif"
+                                alt="karakondzulica"
+                                id="karakondzulica31"
+                            />
+                        </a>
+                    </figure>
+                    <figure>
+                        <a
+                            href="#"
+                            onmouseout="MM_swapImgRestore()"
+                            onmouseover="MM_swapImage('karakondzulica32','','images/karakondzulica32-2.gif',1)"
+                        >
+                            <img
+                                src="images/karakondzulica32.gif"
+                                alt="karakondzulica"
+                                id="karakondzulica32"
+                            />
+                        </a>
+                    </figure>
+                    <figure>
+                        <a
+                            href="#"
+                            onmouseout="MM_swapImgRestore()"
+                            onmouseover="MM_swapImage('karakondzulica33','','images/karakondzulica33-2.gif',1)"
+                        >
+                            <img
+                                src="images/karakondzulica33.gif"
+                                alt="karakondzulica"
+                                id="karakondzulica33"
+                            />
+                        </a>
+                    </figure>
+                    <figure>
+                        <a
+                            href="#"
+                            onmouseout="MM_swapImgRestore()"
+                            onmouseover="MM_swapImage('karakondzulica34','','images/karakondzulica34-2.gif',1)"
+                        >
+                            <img
+                                src="images/karakondzulica34.gif"
+                                alt="karakondzulica"
+                                id="karakondzulica34"
+                            />
+                        </a>
+                    </figure>
+                    <figure>
+                        <a
+                            href="#"
+                            onmouseout="MM_swapImgRestore()"
+                            onmouseover="MM_swapImage('karakondzulica35','','images/karakondzulica35-2.gif',1)"
+                        >
+                            <img
+                                src="images/karakondzulica35.gif"
+                                alt="karakondzulica"
+                                id="karakondzulica35"
+                            />
+                        </a>
+                    </figure>
+                </div>
+            </section>
+        </main>
+
+     <!-- Footer -->
+    <footer>
+      <figure class="footer-image">
+        <img
+          src="images/{{ app.request.locale }}/futer1.gif"
+          alt={{ 'Bezbedna deca na Internetu'|trans }}
+          width="1200"
+          height="154"
+        />
+      </figure>
+      <div class="footer-info">
+        <div class="social-links">
+          <a
+            href="https://www.facebook.com/people/Pametan-klik/61573514010150/"
+            target="_blank"
+            class="facebook"
+          >
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a
+            href="https://www.instagram.com/tvojprofil"
+            target="_blank"
+            class="instagram"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a
+            href="https://twitter.com/tvojprofil"
+            target="_blank"
+            class="twitter"
+          >
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a
+            href="https://www.youtube.com/tvojkanal"
+            target="_blank"
+            class="youtube"
+          >
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/tvojprofil"
+            target="_blank"
+            class="linkedin"
+          >
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a
+            href="https://www.tiktok.com/@tvojprofil"
+            target="_blank"
+            class="tiktok"
+          >
+            <i class="fab fa-tiktok"></i>
+          </a>
+          <a
+            href="https://www.pinterest.com/tvojprofil"
+            target="_blank"
+            class="pinterest"
+          >
+            <i class="fab fa-pinterest"></i>
+          </a>
+        </div>
+        <p>
+          ITEMS <a href="mailto:office@items.rs">office@items.rs</a>
+          <a href="https://www.items.rs">www.items.rs</a>
+        </p>
+        <p>{{'copyright'|trans}}</p>
+        <br />
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
