@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use Twig\Environment;
+use App\Form\ContactType;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -28,26 +30,25 @@ class HomeController extends AbstractController
         return new Response($this->twig->render('home.html.twig'));
     }
 
-    #[Route('/{_locale}/saveti-za-decu', name: 'saveti_deca', requirements: ['_locale' => 'sr|en|es'])]
-    public function savetiDeca(): Response
-    {
-        return $this->render('pages/saveti_deca.html.twig', [
-        ]);
-    }
 
-    #[Route('/{_locale}/saveti-za-roditelje', name: 'saveti_roditelji', requirements: ['_locale' => 'sr|en|es'])]
-    public function savetiRoditelji(): Response
-    {
-        return $this->render('page.html.twig', [
-            'template' => 'pages/saveti_roditelji.html.twig',
-        ]);
-    }
 
-    #[Route('/{_locale}/kontakt', name: 'kontakt', requirements: ['_locale' => 'sr|en|es'])]
-    public function kontakt(): Response
+    #[Route('/{_locale}/contact', name: 'contact', requirements: ['_locale' => 'sr|en|es'])]
+    public function kontakt(Request $request): Response
     {
-        return $this->render('page.html.twig', [
-            'template' => 'pages/kontakt.html.twig',
+
+        $form = $this->createForm(ContactType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            // Handle form submission, e.g., send an email
+
+            $this->addFlash('success', 'Your message has been sent.');
+
+            return $this->redirectToRoute('contact', ['_locale' => $request->getLocale()]);
+        }
+
+        return $this->render('contact.html.twig', [
+            'form' => $form->createView(),
         ]);
     }
 }
