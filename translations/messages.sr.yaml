@@ -3,3 +3,8 @@
 "copyright": "Сва ауторска права су заштићена ©2025 ITEMS, Београд, Србија"
 "loading...": "Учитавање..."
 "please wait...": "Молимо Вас, сачекајте..."
+"Contact Us": "Контактирајте нас"
+form.name: "Ime"
+form.email: "Email"
+form.message: "Poruka"
+form.send: "Pošalji"

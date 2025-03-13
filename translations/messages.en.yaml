@@ -3,3 +3,8 @@
 "copyright": "All rights reserved ©2025 ITEMS, Belgrade, Serbia"
 "loading...": "Loading..."
 "please wait...": "Please wait..."
+"Contact Us": "Contact Us"
+form.name: "Name"
+form.email: "Email"
+form.message: "Message"
+form.send: "Send"
