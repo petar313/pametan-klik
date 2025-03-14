@@ -9,6 +9,12 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: PageRepository::class)]
 class Page
 {
+
+    public const CATEGORIES = [
+        'kids' => 'Kids',
+        'parents' => 'Parents',
+    ];
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -25,6 +31,8 @@ class Page
 
     #[ORM\Column(length: 10)]
     private ?string $locale = null;
+
+    private ?string $category = null;
 
     public function getId(): ?int
     {
@@ -75,6 +83,18 @@ class Page
     public function setLocale(string $locale): static
     {
         $this->locale = $locale;
+
+        return $this;
+    }
+
+    public function getCategory(): ?string
+    {
+        return $this->category;
+    }
+
+    public function setCategory(string $category): static
+    {
+        $this->category = $category;
 
         return $this;
     }

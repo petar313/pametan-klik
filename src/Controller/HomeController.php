@@ -8,6 +8,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\ORM\EntityManagerInterface;
+use App\Entity\Page;
 
 class HomeController extends AbstractController
 {
@@ -49,6 +51,24 @@ class HomeController extends AbstractController
 
         return $this->render('contact.html.twig', [
             'form' => $form->createView(),
+        ]);
+    }
+
+    #[Route('/{_locale}/{slug}', name: 'page_show', requirements: ['_locale' => 'sr|en|es'])]
+    public function show(string $_locale, string $slug, EntityManagerInterface $em): Response
+    {
+        $page = $em->getRepository(Page::class)->findOneBy([
+            'slug' => $slug,
+            'locale' => $_locale,
+        ]);
+
+        if (!$page) {
+            throw $this->createNotFoundException('Page not found');
+        }
+
+        return $this->render('page/show.html.twig', [
+            'title' => $page->getTitle(),
+            'content' => $page->getContent(),
         ]);
     }
 }
