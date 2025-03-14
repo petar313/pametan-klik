@@ -23,12 +23,37 @@ class HomeController extends AbstractController
     #[Route('/', name: 'default-home')]
     public function defaultHome(): Response
     {
+        $locale = $this->getParameter('locale');
+        $kidsSlug = match ($locale) {
+            'sr' => 'saveti-za-decu',
+            'en' => 'tips-for-kids',
+            'es' => 'tips',
+            default => 'saveti-za-decu',
+        };
+        $parentsSlug = match ($locale) {
+            'sr' => 'saveti-za-roditelje',
+            'en' => 'tips-for-parents',
+            'es' => 'tips-for-parents',
+            default => 'saveti-za-roditelje',
+        };
         return new Response($this->twig->render('home.html.twig'));
     }
 
     #[Route('/{_locale}', name: 'home', requirements: ['_locale' => 'sr|en|es'])]
     public function home($locale = 'sr'): Response
     {
+        $kidsSlug = match ($locale) {
+            'sr' => 'saveti-za-decu',
+            'en' => 'tips-for-kids',
+            'es' => 'tips',
+            default => 'saveti-za-decu',
+        };
+        $parentsSlug = match ($locale) {
+            'sr' => 'saveti-za-roditelje',
+            'en' => 'tips-for-parents',
+            'es' => 'tips-for-parents',
+            default => 'saveti-za-roditelje',
+        };
         return new Response($this->twig->render('home.html.twig'));
     }
 
@@ -54,21 +79,23 @@ class HomeController extends AbstractController
         ]);
     }
 
-    #[Route('/{_locale}/{slug}', name: 'page_show', requirements: ['_locale' => 'sr|en|es'])]
-    public function show(string $_locale, string $slug, EntityManagerInterface $em): Response
+    #[Route('/{_locale}/{category}/{slug}', name: 'page_show', requirements: ['_locale' => 'sr|en|es'])]
+    public function pageShow(string $_locale, string $slug, string $category, EntityManagerInterface $em): Response
     {
         $page = $em->getRepository(Page::class)->findOneBy([
             'slug' => $slug,
             'locale' => $_locale,
+            'category' => $category,
         ]);
 
         if (!$page) {
             throw $this->createNotFoundException('Page not found');
         }
 
-        return $this->render('page/show.html.twig', [
+        return $this->render('page_show.html.twig', [
             'title' => $page->getTitle(),
             'content' => $page->getContent(),
+            'category' => $page->getCategory(),
         ]);
     }
 }
