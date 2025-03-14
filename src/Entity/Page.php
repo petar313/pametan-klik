@@ -32,6 +32,7 @@ class Page
     #[ORM\Column(length: 10)]
     private ?string $locale = null;
 
+    #[ORM\Column(length: 255)]
     private ?string $category = null;
 
     public function getId(): ?int
