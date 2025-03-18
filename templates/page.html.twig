@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pametan klik - Saveti za decu</title>
+    <title>{{ 'Pametan klik'|trans }} - {% block title %}Saveti{% endblock %}</title>
     <link rel="stylesheet" href="../../css/styles.css" />
     <link rel="icon" type="image/png" href="../../favicon.png" />
     <link
@@ -27,51 +27,12 @@
     </nav>
 
         <header>
-            <nav class="language-nav">
-                <ul>
-                    <li>
-                        <a href="{{ path('home', {'_locale': 'sr'}) }}">
-                            <img
-                                src="{{ asset('images/zastave i logoi/SRflag.jpg') }}"
-                                alt="Srpski"
-                                width="30"
-                                height="20"
-                            />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ path('home', {'_locale': 'en'}) }}">
-                            <img
-                                src="{{ asset('images/zastave i logoi/UKflag.gif') }}"
-                                alt="English"
-                                width="30"
-                                height="20"
-                            />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ path('home', {'_locale': 'es'}) }}">
-                            <img
-                                src="{{ asset('images/zastave i logoi/ESflag.png') }}"
-                                alt="Español"
-                                width="30"
-                                height="20"
-                            />
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+            {% include '_includes/languageSwitcher.html.twig' %}  
         </header>
 
     <main class="container2">
       <aside class="sidebar">
-        <a href="pocetnadeca.html" class="active">Saveti za decu</a>
-        <a href="opstisaveti.html">Општи савети</a>
-        <a href="fejs.html">Фејсбук</a>
-        <a href="cet.html">Чет</a>
-        <a href="ostalo.htm">Остало</a>
-        <a href="resursi.htm">Ресурси</a>
-        <a href="pisitenam.php">Пишите нам</a>
+        {% include '_includes/sidebar.html.twig' %}
       </aside>
 
       <section class="content">
@@ -92,9 +53,10 @@
     </main>
 
     <!-- Footer -->
+    <footer>
     {% include '_includes/footer.html.twig' %}
-
-<!-- Scripts -->
+    </footer>
+    <!-- Scripts -->
     <script src="../../js/scripts.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {

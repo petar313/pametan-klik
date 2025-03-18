@@ -23,20 +23,12 @@ class HomeController extends AbstractController
     #[Route('/', name: 'default-home')]
     public function defaultHome(): Response
     {
-        $locale = $this->getParameter('locale');
-        $kidsSlug = match ($locale) {
-            'sr' => 'saveti-za-decu',
-            'en' => 'tips-for-kids',
-            'es' => 'tips',
-            default => 'saveti-za-decu',
-        };
-        $parentsSlug = match ($locale) {
-            'sr' => 'saveti-za-roditelje',
-            'en' => 'tips-for-parents',
-            'es' => 'tips-for-parents',
-            default => 'saveti-za-roditelje',
-        };
-        return new Response($this->twig->render('home.html.twig'));
+        $kidsSlug = 'saveti-za-decu';
+        $parentsSlug = 'saveti-za-roditelje';
+        return new Response($this->twig->render('home.html.twig', [
+            'kidsSlug' => $kidsSlug,
+            'parentsSlug' => $parentsSlug,
+        ]));
     }
 
     #[Route('/{_locale}', name: 'home', requirements: ['_locale' => 'sr|en|es'])]
@@ -54,7 +46,10 @@ class HomeController extends AbstractController
             'es' => 'tips-for-parents',
             default => 'saveti-za-roditelje',
         };
-        return new Response($this->twig->render('home.html.twig'));
+        return new Response($this->twig->render('home.html.twig', [
+            'kidsSlug' => $kidsSlug,
+            'parentsSlug' => $parentsSlug,
+        ]));
     }
 
 
