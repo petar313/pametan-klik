@@ -149,7 +149,7 @@
                     </figure>
                     <figure>
                         <a
-                            href="{{ path('page_show', {'slug': parentsSlug, 'category': 'parents', 'locale':'sr'}) }}"
+                            href="{{ path('page_show', {'slug': 'tips-for-parents', 'category': 'parents', '_locale':app.request.locale}) }}"
                             onmouseout="MM_swapImgRestore()"
                             onmouseover="MM_swapImage('malaMajaRod','','images/mala-maja-nasmejanaRod.gif',1)"
                         >
@@ -175,7 +175,7 @@
                     </figure>
                     <figure>
                         <a
-                            href="{{ path('page_show', {'slug': kidsSlug, 'category': 'kids', 'locale':'sr'}) }}"
+                            href="{{ path('page_show', {'slug': 'tips-for-parents', 'category': 'kids', 'locale':app.request.locale}) }}"
                             onmouseout="MM_swapImgRestore()"
                             onmouseover="MM_swapImage('malaMajaDeca','','images/mala-maja-nasmejanaDeca.gif',1)"
                         >

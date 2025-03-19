@@ -23,33 +23,13 @@ class HomeController extends AbstractController
     #[Route('/', name: 'default-home')]
     public function defaultHome(): Response
     {
-        $kidsSlug = 'saveti-za-decu';
-        $parentsSlug = 'saveti-za-roditelje';
-        return new Response($this->twig->render('home.html.twig', [
-            'kidsSlug' => $kidsSlug,
-            'parentsSlug' => $parentsSlug,
-        ]));
+        return new Response($this->twig->render('home.html.twig'));
     }
 
     #[Route('/{_locale}', name: 'home', requirements: ['_locale' => 'sr|en|es'])]
-    public function home($locale = 'sr'): Response
+    public function home($_locale = 'sr'): Response
     {
-        $kidsSlug = match ($locale) {
-            'sr' => 'saveti-za-decu',
-            'en' => 'tips-for-kids',
-            'es' => 'tips',
-            default => 'saveti-za-decu',
-        };
-        $parentsSlug = match ($locale) {
-            'sr' => 'saveti-za-roditelje',
-            'en' => 'tips-for-parents',
-            'es' => 'tips-for-parents',
-            default => 'saveti-za-roditelje',
-        };
-        return new Response($this->twig->render('home.html.twig', [
-            'kidsSlug' => $kidsSlug,
-            'parentsSlug' => $parentsSlug,
-        ]));
+        return new Response($this->twig->render('home.html.twig'));
     }
 
 
