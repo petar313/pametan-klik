@@ -34,8 +34,8 @@ class HomeController extends AbstractController
 
 
 
-    #[Route('/{_locale}/contact', name: 'contact', requirements: ['_locale' => 'sr|en|es'])]
-    public function kontakt(Request $request): Response
+    #[Route('/{_locale}/{category}/contact', name: 'contact', requirements: ['_locale' => 'sr|en|es'])]
+    public function kontakt(Request $request, $category): Response
     {
 
         $form = $this->createForm(ContactType::class);
@@ -51,6 +51,7 @@ class HomeController extends AbstractController
 
         return $this->render('contact.html.twig', [
             'form' => $form->createView(),
+            'category' => $category,
         ]);
     }
 

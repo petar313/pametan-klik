@@ -4,4 +4,4 @@
 <a href="{{ path('page_show', {'slug': 'chat', 'category': 'kids', '_locale':app.request.locale}) }}">Чет</a>
 <a href="{{ path('page_show', {'slug': 'other', 'category': 'kids', '_locale':app.request.locale}) }}">Остало</a>
 <a href="{{ path('page_show', {'slug': 'resources', 'category': 'kids', '_locale':app.request.locale}) }}">Ресурси</a>
-<a href="{{path('contact')}}">{{"Contact Us" | trans}}</a>
+<a href="{{path('contact', {'category': 'kids'})}}">{{"Contact Us" | trans}}</a>
