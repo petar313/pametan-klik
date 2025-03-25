@@ -508,3 +508,44 @@ input[type="submit"]:hover {
 .text-right img {
   margin-left: 15px; /* Razmak levo kada je slika desno */
 }
+
+button {
+  background-color: #007bff; /* Plava boja */
+  color: #fff; /* Bela boja teksta */
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  margin-top: 30px;
+}
+
+/* Efekti na hover i klik */
+button:hover {
+  background-color: #0056b3; /* Tamnija plava */
+}
+
+button:active {
+  transform: scale(0.98); /* Blagi pritisak pri kliku */
+}
+
+textarea {
+  min-width: 450px;
+  min-height: 250px;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical; /* Dozvoljava vertikalno razvlačenje */
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Fokus efekat */
+textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
