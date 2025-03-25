@@ -1,7 +1,7 @@
-<a href="pocetnadeca.html" class="active">Saveti za decu</a>
-<a href="opstisaveti.html">Општи савети</a>
-<a href="fejs.html">Фејсбук</a>
-<a href="cet.html">Чет</a>
-<a href="ostalo.htm">Остало</a>
-<a href="resursi.htm">Ресурси</a>
+<a href="{{ path('page_show', {'slug': 'tips-for-kids', 'category': 'kids', '_locale':app.request.locale}) }}">Saveti za decu</a>
+<a href="{{ path('page_show', {'slug': 'general-tips', 'category': 'kids', '_locale':app.request.locale}) }}">Општи савети</a>
+<a href="{{ path('page_show', {'slug': 'facebook', 'category': 'kids', '_locale':app.request.locale}) }}">Фејсбук</a>
+<a href="{{ path('page_show', {'slug': 'chat', 'category': 'kids', '_locale':app.request.locale}) }}">Чет</a>
+<a href="{{ path('page_show', {'slug': 'other', 'category': 'kids', '_locale':app.request.locale}) }}">Остало</a>
+<a href="{{ path('page_show', {'slug': 'resources', 'category': 'kids', '_locale':app.request.locale}) }}">Ресурси</a>
 <a href="{{path('contact')}}">{{"Contact Us" | trans}}</a>
