@@ -151,10 +151,10 @@
                         <a
                             href="{{ path('page_show', {'slug': 'tips-for-parents', 'category': 'parents', '_locale':app.request.locale}) }}"
                             onmouseout="MM_swapImgRestore()"
-                            onmouseover="MM_swapImage('malaMajaRod','','images/mala-maja-nasmejanaRod.gif',1)"
+                            onmouseover="MM_swapImage('malaMajaRod','','images/{{ app.request.locale }}/mala-maja-nasmejanaRod.gif',1)"
                         >
                             <img
-                                src="images/mala-maja-zbunjenaRod.gif"
+                                src="images/{{ app.request.locale }}/mala-maja-zbunjenaRod.gif"
                                 alt="Pametan klik za roditelje"
                                 id="malaMajaRod"
                             />
@@ -177,10 +177,10 @@
                         <a
                             href="{{ path('page_show', {'slug': 'tips-for-kids', 'category': 'kids', 'locale':app.request.locale}) }}"
                             onmouseout="MM_swapImgRestore()"
-                            onmouseover="MM_swapImage('malaMajaDeca','','images/mala-maja-nasmejanaDeca.gif',1)"
+                            onmouseover="MM_swapImage('malaMajaDeca','','images/{{ app.request.locale }}/mala-maja-nasmejanaDeca.gif',1)"
                         >
                             <img
-                                src="images/mala-maja-zbunjenaDeca.gif"
+                                src="images/{{ app.request.locale }}/mala-maja-zbunjenaDeca.gif"
                                 alt="Pametan klik za decu"
                                 id="malaMajaDeca"
                             />
