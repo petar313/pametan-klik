@@ -1,13 +1,20 @@
-{% extends 'page.html.twig' %}
+{% extends 'base.html.twig' %}
 
-{% block title %}{{ 'Contact Us'|trans }}{% endblock %}
+{% block title %}{{ 'contact.title'|trans }}{% endblock %}
 
-{% block content %}
-        <h1>{{ 'Contact Us'|trans }}</h1>
-    {{ form_start(form) }}
-        {{ form_row(form.name) }}
-        {{ form_row(form.email) }}
-        {{ form_row(form.message) }}
+{% block body %}
+    <h1>{{ 'contact.title'|trans }}</h1>
+
+    {% for type, messages in app.flashes %}
+        {% for message in messages %}
+            <p class="flash flash--{{ type }}" role="status">{{ message|trans }}</p>
+        {% endfor %}
+    {% endfor %}
+
+    <p>{{ 'contact.intro'|trans }}</p>
+
+    {{ form_start(form, {attr: {class: 'contact-form', novalidate: 'novalidate'}}) }}
+        {{ form_widget(form) }}
         <button type="submit">{{ 'form.send'|trans }}</button>
     {{ form_end(form) }}
 {% endblock %}

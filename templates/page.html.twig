@@ -1,70 +1,29 @@
-<!DOCTYPE html>
-<html lang="sr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ 'Pametan klik'|trans }} - {% block title %}Saveti{% endblock %}</title>
-    <link rel="stylesheet" href="../../css/styles.css" />
-    <link rel="icon" type="image/png" href="../../favicon.png" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    />
-  </head>
-  <body>
-    <button class="menu-toggle">☰</button>
+{% extends 'base.html.twig' %}
 
-    <nav class="nav-menu">
-      <ul>
-{% include '_includes/nav_top_kids.html.twig' %}
-      </ul>
-    </nav>
+{% block title %}{{ page.title }}{% endblock %}
 
-        <header>
-            {% include '_includes/languageSwitcher.html.twig' %}  
-        </header>
+{% block meta %}
+    {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
+    <link rel="canonical" href="{{ alternates[hreflang()] }}">
+{% endblock %}
 
-    <main class="container2">
-      <aside class="sidebar">
-        {% include '_includes/sidebar.html.twig' %}
-      </aside>
+{% block body %}
+    {% if audience is null %}
+        {{ include('_home_gallery.html.twig') }}
+    {% endif %}
 
-      <section class="content">
-        {% block content %}{% endblock %}
-      </section>
+    <article class="page page--{{ audience ?? 'home' }}">
+        <h1>{{ page.title }}</h1>
+        {{ page.html|raw }}
+    </article>
 
-      <aside class="game">
-        <a href="http://www.wildwebwoods.org/popup.php?lang=cs" target="_blank">
-          <img src="{{ asset('images/www.gif') }}" alt="Игрица" />
-        </a>
-        <a href="{{path('home')}}" target="_blank">
-          <img
-            src="{{ asset('images/mala-maja-nasmejanaRod.gif') }}"
-            alt="Pametan klik za roditelje"
-          />
-        </a>
-      </aside>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-    {% include '_includes/footer.html.twig' %}
-    </footer>
-    <!-- Scripts -->
-    <script src="../../js/scripts.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Selektovanje hamburger menija i navigacije
-        const menuToggle = document.querySelector(".menu-toggle");
-        const navMenu = document.querySelector(".nav-menu");
-
-        // Provera da li elementi postoje pre dodavanja event listenera
-        if (menuToggle && navMenu) {
-          menuToggle.addEventListener("click", function () {
-            navMenu.classList.toggle("active"); // Dodaje/uklanja klasu 'active'
-          });
-        }
-      });
-    </script>
-  </body>
-</html>
+    {% if menu %}
+        <nav class="section-menu">
+            <ul>
+                {% for item in menu %}
+                    <li><a href="{{ path('page', {section: item.section, slug: item.slug}) }}" {% if item.slug == page.slug %}aria-current="page"{% endif %}>{{ item.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </nav>
+    {% endif %}
+{% endblock %}

@@ -1,10 +1,13 @@
-import './bootstrap.js';
-/*
- * Welcome to your app's main JavaScript file!
- *
- * This file will be included onto the page via the importmap() Twig function,
- * which should already be in your base.html.twig.
- */
-import './styles/app.css';
+import { createApp } from "vue";
+import "./app.css";
 
-console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
+// Vue is mounted only on the parts of a page that need interaction:
+// <div data-vue="ComponentName" data-props='{"...": "..."}'></div>
+const components = import.meta.glob("./vue/*.vue", { eager: true });
+
+document.querySelectorAll("[data-vue]").forEach((el) => {
+    const component = components[`./vue/${el.dataset.vue}.vue`];
+    if (component) {
+        createApp(component.default, JSON.parse(el.dataset.props || "{}")).mount(el);
+    }
+});

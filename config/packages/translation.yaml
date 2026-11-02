@@ -1,7 +1,9 @@
 framework:
-  default_locale: sr
-  translator:
-    default_path: "%kernel.project_dir%/translations"
-    fallbacks:
-      - sr
-    providers:
+    default_locale: sr_Cyrl
+    enabled_locales: [sr_Cyrl, sr_Latn, en, es]
+    translator:
+        default_path: '%kernel.project_dir%/translations'
+        # Latin Serbian has no translation file: it uses the Cyrillic strings,
+        # which LatinScriptListener transliterates.
+        fallbacks: [sr_Cyrl]
+        providers:

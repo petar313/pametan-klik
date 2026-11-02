@@ -1,0 +1,28 @@
+{#- The 3 x 5 gallery of the old home page; mala Maja sits in the middle row. -#}
+{%- set image_dir = app.request.locale starts with 'sr' ? 'sr' : app.request.locale -%}
+{%- set items = [] -%}
+{%- for n in [11, 12, 13, 14, 15, 21, 'parents', 23, 'kids', 25, 31, 32, 33, 34, 35] -%}
+    {%- if n == 'kids' or n == 'parents' -%}
+        {%- set name = n == 'kids' ? 'Deca' : 'Rod' -%}
+        {%- set items = items|merge([{
+            src: asset('images/' ~ image_dir ~ '/mala-maja-zbunjena' ~ name ~ '.gif'),
+            hoverSrc: asset('images/' ~ image_dir ~ '/mala-maja-nasmejana' ~ name ~ '.gif'),
+            alt: ('nav.' ~ n)|trans,
+            href: path('page', {section: section(n)}),
+        }]) -%}
+    {%- else -%}
+        {%- set items = items|merge([{
+            src: asset('images/karakondzulica' ~ n ~ '.gif'),
+            hoverSrc: asset('images/karakondzulica' ~ n ~ '-2.gif'),
+            alt: '',
+        }]) -%}
+    {%- endif -%}
+{%- endfor -%}
+{#- Static version for search engines and before Vue mounts; Vue replaces it. -#}
+<div data-vue="CharacterGallery" data-props="{{ {items: items}|json_encode }}">
+    <div class="gallery-static">
+        {% for item in items|filter(i => i.href is defined) %}
+            <a href="{{ item.href }}"><img src="{{ item.src }}" alt="{{ item.alt }}" width="240" height="200"></a>
+        {% endfor %}
+    </div>
+</div>

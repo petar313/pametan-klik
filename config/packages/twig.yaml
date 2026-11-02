@@ -1,5 +1,8 @@
 twig:
     file_name_pattern: '*.twig'
+    globals:
+        # Google AdSense publisher id (ca-pub-...); empty means no ads, e.g. in dev and test.
+        adsense_client: '%env(ADSENSE_CLIENT)%'
 
 when@test:
     twig:

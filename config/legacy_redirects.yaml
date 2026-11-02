@@ -1,0 +1,63 @@
+# Old pametanklik.rs URLs (from urllist.txt and the files on the old server).
+# Path without the leading slash => route name and parameters, or "gone" for 410.
+# Serbian targets are the Cyrillic pages, like the old site.
+
+index.html: { route: home, _locale: sr_Cyrl }
+srp/deca/pocetnadeca.html: { route: page, _locale: sr_Cyrl, section: deca }
+srp/deca/opstisaveti.html: { route: page, _locale: sr_Cyrl, section: deca, slug: opsti-saveti }
+srp/deca/fejs.html: { route: page, _locale: sr_Cyrl, section: deca, slug: drustvene-mreze }
+srp/deca/cet.html: { route: page, _locale: sr_Cyrl, section: deca, slug: cet }
+srp/deca/ostalo.htm: { route: page, _locale: sr_Cyrl, section: deca, slug: igrice-i-ostalo }
+srp/deca/resursi.htm: { route: page, _locale: sr_Cyrl, section: deca, slug: resursi }
+srp/deca/pisitenam.php: { route: contact, _locale: sr_Cyrl }
+srp/roditelji/pocetnaroditelji.html: { route: page, _locale: sr_Cyrl, section: roditelji }
+srp/roditelji/opstapravila.htm: { route: page, _locale: sr_Cyrl, section: roditelji, slug: opsta-pravila }
+srp/roditelji/surfovanje.htm: { route: page, _locale: sr_Cyrl, section: roditelji, slug: surfovanje }
+srp/roditelji/drustvenemreze.htm: { route: page, _locale: sr_Cyrl, section: roditelji, slug: drustvene-mreze }
+srp/roditelji/igrice.htm: { route: page, _locale: sr_Cyrl, section: roditelji, slug: igrice }
+srp/roditelji/resursi.htm: { route: page, _locale: sr_Cyrl, section: roditelji, slug: resursi }
+srp/roditelji/pisitenam.php: { route: contact, _locale: sr_Cyrl }
+
+eng/index.html: { route: home, _locale: en }
+eng/kids/homekids.html: { route: page, _locale: en, section: kids }
+eng/kids/generaltips.htm: { route: page, _locale: en, section: kids, slug: general-tips }
+eng/kids/facebook.htm: { route: page, _locale: en, section: kids, slug: social-networks }
+eng/kids/chat.htm: { route: page, _locale: en, section: kids, slug: chat }
+eng/kids/other.htm: { route: page, _locale: en, section: kids, slug: games-and-more }
+eng/kids/resources.htm: { route: page, _locale: en, section: kids, slug: resources }
+eng/kids/contact.php: { route: contact, _locale: en }
+eng/parents/homeparents.html: { route: page, _locale: en, section: parents }
+eng/parents/rules.htm: { route: page, _locale: en, section: parents, slug: general-rules }
+eng/parents/surf.htm: { route: page, _locale: en, section: parents, slug: safe-surfing }
+eng/parents/socnetwork.htm: { route: page, _locale: en, section: parents, slug: social-networks }
+eng/parents/games.htm: { route: page, _locale: en, section: parents, slug: games }
+eng/parents/resources.htm: { route: page, _locale: en, section: parents, slug: resources }
+eng/parents/contact.php: { route: contact, _locale: en }
+eng/parents/chat.htm: { route: page, _locale: en, section: parents }
+eng/parents/facebook.htm: { route: page, _locale: en, section: parents }
+eng/parents/generaltips.htm: { route: page, _locale: en, section: parents }
+eng/parents/other.htm: { route: page, _locale: en, section: parents }
+
+esp/index.htm: { route: home, _locale: es }
+esp/ninos/inicio.htm: { route: page, _locale: es, section: ninos }
+esp/ninos/ninoshome.htm: { route: page, _locale: es, section: ninos }
+esp/ninos/consejos.htm: { route: page, _locale: es, section: ninos, slug: consejos }
+esp/ninos/facebook.htm: { route: page, _locale: es, section: ninos, slug: redes-sociales }
+esp/ninos/chat.htm: { route: page, _locale: es, section: ninos, slug: chat }
+esp/ninos/otros.htm: { route: page, _locale: es, section: ninos, slug: juegos-y-mas }
+esp/ninos/recursos.htm: { route: page, _locale: es, section: ninos, slug: recursos }
+esp/ninos/aviso.htm: { route: page, _locale: es, section: ninos }
+esp/ninos/contacto.php: { route: contact, _locale: es }
+esp/los padres/iniciopadres.htm: { route: page, _locale: es, section: padres }
+esp/los padres/los padres.htm: { route: page, _locale: es, section: padres }
+esp/parents/parentshome.htm: { route: page, _locale: es, section: padres }
+esp/los padres/consejos.htm: { route: page, _locale: es, section: padres, slug: reglas-generales }
+esp/los padres/surfear.htm: { route: page, _locale: es, section: padres, slug: navegar-seguro }
+esp/los padres/sociales.htm: { route: page, _locale: es, section: padres, slug: redes-sociales }
+esp/los padres/juegos.htm: { route: page, _locale: es, section: padres, slug: juegos }
+esp/los padres/recursos.htm: { route: page, _locale: es, section: padres, slug: recursos }
+esp/los padres/contacto.php: { route: contact, _locale: es }
+
+eng/test.html: gone
+brojac.htm: gone
+Scripts/mail.php: gone
