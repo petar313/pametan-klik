@@ -7,10 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 final class LegacyRedirectControllerTest extends WebTestCase
 {
-    /**
-     * Every URL the old site listed in urllist.txt redirects once, to a page route of the new site.
-     * Most pages are not imported yet, so this checks the route, not that the page exists.
-     */
+    /** Every URL the old site listed in urllist.txt redirects once, to a page that exists. */
     #[DataProvider('provideOldUrls')]
     public function testOldUrlRedirectsPermanently(string $path): void
     {
@@ -24,9 +21,9 @@ final class LegacyRedirectControllerTest extends WebTestCase
         }
 
         self::assertResponseStatusCodeSame(301);
-        $location = parse_url($client->getResponse()->headers->get('Location'), \PHP_URL_PATH);
-        $route = static::getContainer()->get('router')->match($location)['_route'];
-        self::assertContains($route, ['home', 'page', 'contact'], \sprintf('%s redirects to %s (%s).', $path, $location, $route));
+        $location = $client->getResponse()->headers->get('Location');
+        $client->request('GET', $location);
+        self::assertResponseIsSuccessful(\sprintf('%s redirects to %s, which does not load.', $path, $location));
     }
 
     public static function provideOldUrls(): iterable

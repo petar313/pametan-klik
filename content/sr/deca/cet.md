@@ -1,5 +1,6 @@
 ---
 key: kids-chat
+order: 3
 title: Чет
 description: Како да безбедно ћаскаш на интернету.
 ---

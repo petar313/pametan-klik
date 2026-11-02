@@ -16,6 +16,8 @@ final readonly class Page
         public string $title,
         public string $description,
         public string $html,
+        /** Position in the section menu */
+        public int $order = 0,
     ) {
     }
 }

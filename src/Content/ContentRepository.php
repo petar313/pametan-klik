@@ -46,7 +46,7 @@ final class ContentRepository
         return null;
     }
 
-    /** @return list<Page> pages of one section, home page excluded, in file name order */
+    /** @return list<Page> pages of one section, home page excluded, in menu order */
     public function section(string $language, string $section): array
     {
         $pages = array_filter(
@@ -54,7 +54,9 @@ final class ContentRepository
             static fn (Page $p): bool => $p->language === $language && $p->section === $section && 'index' !== $p->slug,
         );
 
-        return array_values($pages);
+        usort($pages, static fn (Page $a, Page $b): int => [$a->order, $a->slug] <=> [$b->order, $b->slug]);
+
+        return $pages;
     }
 
     /** @return array<string, Page> */
@@ -100,6 +102,7 @@ final class ContentRepository
                 title: $meta['title'] ?? throw new \UnexpectedValueException(\sprintf('Missing "title" in %s.', $file->getRelativePathname())),
                 description: $meta['description'] ?? '',
                 html: $result->getContent(),
+                order: (int) ($meta['order'] ?? 0),
             );
         }
 

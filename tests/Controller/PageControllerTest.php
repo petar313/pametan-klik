@@ -67,6 +67,17 @@ final class PageControllerTest extends WebTestCase
         self::assertSame('/deca/cet', parse_url($crawler->filter('link[rel="canonical"]')->attr('href'), \PHP_URL_PATH));
     }
 
+    public function testSectionMenuKeepsTheOldOrder(): void
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/en/kids');
+
+        self::assertSame(
+            ['General tips', 'Social networks', 'Chat', 'Games and more', 'Resources'],
+            $crawler->filter('.section-menu a')->each(static fn ($a): string => $a->text()),
+        );
+    }
+
     #[DataProvider('provideMissingPages')]
     public function testMissingPagesAre404(string $url): void
     {

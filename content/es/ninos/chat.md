@@ -1,5 +1,6 @@
 ---
 key: kids-chat
+order: 3
 title: Chat
 description: Cómo chatear de forma segura.
 ---

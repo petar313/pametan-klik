@@ -1,5 +1,6 @@
 ---
 key: kids-chat
+order: 3
 title: Chat
 description: How to chat safely online.
 ---
