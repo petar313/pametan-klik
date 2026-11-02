@@ -1,0 +1,49 @@
+:root {
+    --blue: #236ab4;
+    --blue-dark: #1d3557;
+    --yellow: #ffd23f;
+    --text: #1f2933;
+    --bg: #f7f9fc;
+    font-family: "Nunito", "Trebuchet MS", system-ui, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.6;
+}
+
+body { margin: 0; }
+a { color: var(--blue); }
+a[aria-current] { font-weight: 700; }
+
+.site-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    align-items: center;
+    padding: 1rem;
+    background: var(--blue);
+}
+.site-header a { color: #fff; text-decoration: none; padding: 0.5rem 0; }
+.site-name { font-size: 1.5rem; font-weight: 800; margin-right: auto; }
+.site-nav, .language-switch { display: flex; flex-wrap: wrap; gap: 1rem; }
+.language-switch { font-size: 0.9rem; }
+
+.site-main > * { max-width: 46rem; margin-left: auto; margin-right: auto; }
+.site-main { max-width: 75rem; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+.page li { margin-bottom: 0.75rem; }
+.section-menu ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.section-menu a { display: block; padding: 0.5rem 1rem; border-radius: 999px; background: #fff; border: 2px solid var(--blue); text-decoration: none; }
+
+.site-footer { padding: 1.5rem 1rem; text-align: center; font-size: 0.9rem; color: #52606d; }
+
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.contact-form > div > div { display: flex; flex-direction: column; gap: 0.25rem; margin-bottom: 1rem; }
+.contact-form input, .contact-form textarea { font: inherit; padding: 0.6rem; border: 2px solid #c5d3e3; border-radius: 0.5rem; }
+.contact-form textarea { min-height: 10rem; }
+.contact-form button { font: inherit; font-weight: 700; padding: 0.7rem 1.5rem; border: 0; border-radius: 999px; background: var(--blue); color: #fff; cursor: pointer; }
+.contact-form ul { color: #b42318; margin: 0; padding-left: 1.2rem; }
+.flash { padding: 0.75rem 1rem; border-radius: 0.5rem; }
+.flash--success { background: #e5f4e4; }
+.flash--error { background: #fbebeb; }
+.gallery-static { display: flex; gap: 1rem; justify-content: center; }
+.gallery-static img { max-width: 100%; height: auto; }
+.site-main > [data-vue="CharacterGallery"] { max-width: 75rem; }

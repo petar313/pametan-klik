@@ -1,10 +1,23 @@
-"Pametan klik": "Clic inteligente"
-"Bezbedna deca na Internetu": "Niños seguros en Internet"
-"copyright": "Todos los derechos reservados ©2025 ITEMS, Belgrado, Serbia"
-"loading...": "Cargando..."
-"please wait...": "Por favor, espere..."
-"Contact Us": "Contáctenos"
-form.name: "Nombre"
-form.email: "Correo electrónico"
-form.message: "Mensaje"
-form.send: "Enviar"
+site:
+    name: Navega con inteligencia
+    tagline: Seguridad infantil en Internet
+nav:
+    kids: Para niños
+    parents: Para padres
+    contact: Contacto
+    language: Idioma
+footer:
+    copyright: © %year% ITEMS, Belgrado, Serbia
+ads:
+    label: Publicidad
+contact:
+    title: Contacto
+    intro: ¿Tienes una pregunta o una sugerencia? Envíanos un mensaje y te responderemos lo antes posible.
+    sent: ¡Gracias! Tu mensaje ha sido enviado.
+    rate_limited: Has enviado demasiados mensajes. Inténtalo de nuevo dentro de una hora.
+    subject: Mensaje desde pametanklik.rs
+form:
+    name: Nombre
+    email: Correo electrónico
+    message: Mensaje
+    send: Enviar

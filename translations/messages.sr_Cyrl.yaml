@@ -1,0 +1,23 @@
+site:
+    name: Паметан клик
+    tagline: Безбедност деце на интернету
+nav:
+    kids: За децу
+    parents: За родитеље
+    contact: Пишите нам
+    language: Језик
+footer:
+    copyright: © %year% ITEMS, Београд, Србија
+ads:
+    label: Оглас
+contact:
+    title: Пишите нам
+    intro: Имате питање или предлог? Пошаљите нам поруку и одговорићемо вам што пре.
+    sent: Хвала! Ваша порука је послата.
+    rate_limited: Послали сте превише порука. Покушајте поново за сат времена.
+    subject: Poruka sa sajta pametanklik.rs
+form:
+    name: Име
+    email: Адреса електронске поште
+    message: Порука
+    send: Пошаљи

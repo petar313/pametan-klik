@@ -1,17 +1,48 @@
+{%- set language_names = {'sr-Cyrl': 'Ћирилица', 'sr-Latn': 'Latinica', en: 'English', es: 'Español'} -%}
 <!DOCTYPE html>
-<html>
+<html lang="{{ hreflang() }}">
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
-
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}{{ 'site.name'|trans }}{% endblock %} · {{ 'site.tagline'|trans }}</title>
+        {% block meta %}{% endblock %}
+        {% for hreflang, url in alternates|default({}) %}
+            <link rel="alternate" hreflang="{{ hreflang }}" href="{{ url }}">
+        {% endfor %}
+        {% if alternates['sr-Cyrl'] is defined %}
+            <link rel="alternate" hreflang="x-default" href="{{ alternates['sr-Cyrl'] }}">
+        {% endif %}
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}">
+        <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
+        {{ vite_entry_link_tags('app') }}
+        {{ vite_entry_script_tags('app') }}
+        {% if adsense_client %}
+            {# Before going live: child-directed treatment and the EU consent message are set in the AdSense account (see the plan, "Google AdSense"). #}
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ adsense_client }}" crossorigin="anonymous"></script>
+        {% endif %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <header class="site-header">
+            <a class="site-name" href="{{ path('home') }}">{{ 'site.name'|trans }}</a>
+            <nav class="site-nav">
+                <a href="{{ path('page', {section: section('kids')}) }}" {% if audience|default(null) == 'kids' %}aria-current="true"{% endif %}>{{ 'nav.kids'|trans }}</a>
+                <a href="{{ path('page', {section: section('parents')}) }}" {% if audience|default(null) == 'parents' %}aria-current="true"{% endif %}>{{ 'nav.parents'|trans }}</a>
+                <a href="{{ path('contact') }}">{{ 'nav.contact'|trans }}</a>
+            </nav>
+            <nav class="language-switch" aria-label="{{ 'nav.language'|trans }}">
+                {% for code, hreflang in site_locales() %}
+                    {% set url = alternates[hreflang]|default(path('home', {_locale: code})) %}
+                    <a href="{{ url }}" hreflang="{{ hreflang }}" {% if code == app.request.locale %}aria-current="true"{% endif %}>{{ language_names[hreflang] }}</a>
+                {% endfor %}
+            </nav>
+        </header>
+
+        <main class="site-main">
+            {% block body %}{% endblock %}
+        </main>
+
+        <footer class="site-footer">
+            <p>{{ 'footer.copyright'|trans({'%year%': 'now'|date('Y')}) }} · <a href="mailto:office@items.rs">office@items.rs</a></p>
+        </footer>
     </body>
 </html>
